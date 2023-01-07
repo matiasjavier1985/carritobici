@@ -16,7 +16,7 @@ const pintarCarrito= ()=>{
     eliminar.style.cursor="pointer"
     eliminar.className="btn btn-danger"
     modalcontainer.append(eliminar)
-    
+    eliminar.addEventListener("click", eliminarproducto)
     });
 
     const total = carrito.reduce((acc,totalprecio) => acc + totalprecio.price,0);
@@ -25,7 +25,16 @@ const pintarCarrito= ()=>{
     totalbuying.className= "modal-footer";
     totalbuying.innerHTML =`Total:$ ${total}`
     modalbody.append(totalbuying)
-
- 
 };
 vercarrito.addEventListener("click",pintarCarrito)
+
+const eliminarproducto=()=>{
+
+  const foundID = carrito.find((element)=> element.id);
+
+  carrito=carrito.filter((carritoID)=>{
+     return carritoID !== foundID
+  });
+
+  pintarCarrito()
+};
