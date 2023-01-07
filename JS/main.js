@@ -21,13 +21,32 @@ bike.forEach(product => {
     shopcontent.append(content)
     content.append(comprar)
  
-    comprar.addEventListener("click",()=>{
+comprar.addEventListener("click",()=>{
+    const repeat = carrito.some((repeatproduct)=> repeatproduct.id === product.id);
+
+      if (repeat){
+        carrito.map((prod)=>{
+          if(prod.id === product.id){
+            prod.amount++
+          }
+        });
+      }else{
       carrito.push({
         id:product.id,
         brand:product.brand,
         model:product.model,
-        price:product.price
-      })
-      console.log(carrito);
+        price:product.price,
+        amount: product.amount
+      });
+    }
     })   
 });
+
+
+
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
