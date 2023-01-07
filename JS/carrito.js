@@ -2,9 +2,9 @@ const pintarCarrito= ()=>{
     modalbody.innerHTML=""
     carrito.forEach((product)=>{
         let modalbody = document.createElement("div");
-        modalbody.className="modal-body bg-light "
+        modalbody.className="modal-body"
         modalbody.innerHTML=`
-            <img" src="${product.img}" class="card-img-top">    
+            <img src="${product.img} class="d-inline-block">    
             <h6 class="card-title ps-1">${product.brand}</h3>
             <h6 class ="card-title ps-1">${product.model}</h5>
             <p class="card-text">$ ${product.price}</p>
@@ -12,9 +12,9 @@ const pintarCarrito= ()=>{
     modalcontainer.append(modalbody)
 
     let eliminar = document.createElement("span")
-    eliminar.innerHTML= "❎"
+    eliminar.innerHTML= "BORRAR"
     eliminar.style.cursor="pointer"
-    eliminar.className="bg-light"
+    eliminar.className="btn btn-danger"
     modalcontainer.append(eliminar)
     
     });
