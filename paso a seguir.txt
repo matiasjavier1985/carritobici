@@ -1,0 +1,4 @@
+crear el objeto
+crear la variable carrito (array vacio)
+creamos la card de objeto
+creamos el content de la card padre en el html 
