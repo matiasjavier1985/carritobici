@@ -1,5 +1,5 @@
 const pintarCarrito= ()=>{
-
+    modalbody.innerHTML=""
     carrito.forEach((product)=>{
         let modalbody = document.createElement("div");
         modalbody.className="modal-body bg-light "
@@ -26,6 +26,6 @@ const pintarCarrito= ()=>{
     totalbuying.innerHTML =`Total:$ ${total}`
     modalbody.append(totalbuying)
 
-
+ 
 };
 vercarrito.addEventListener("click",pintarCarrito)
