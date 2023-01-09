@@ -16,9 +16,11 @@ const shopcontent = document.getElementById("shopcontent");
 const vercarrito = document.getElementById("vercarrito")
 const modalcontainer=document.getElementById("modalbody")
 function crearhtml(){
-  shopcontent.innerHTML="";
+  
   bike.forEach(product => {
       let content= document.createElement("div");
+      content.innerHTML=``
+
       content.className="card d-inline-block m-1"
       content.style="width: 15rem;"
       content.innerHTML=`
@@ -57,9 +59,7 @@ function crearhtml(){
 crearhtml()
 
 searchbike.addEventListener("input",()=>{
-  shopcontent.innerHTML=``;
   let filtro= filtrarbike(searchbike.value)
-  console.log(filtro);
   
   crearhtml(filtro)
 });
