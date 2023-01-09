@@ -7,7 +7,7 @@ let searchbike= document.getElementById("searchbike");
 
 function filtrarbike(filtro) {
   let filtrado = bike.filter((bici) => {
-    return bici.brand.includes(filtro);
+    return bici.brand.includes(filtro.toUpperCase());
   });
   return filtrado;
 }
@@ -15,12 +15,13 @@ function filtrarbike(filtro) {
 const shopcontent = document.getElementById("shopcontent");
 const vercarrito = document.getElementById("vercarrito")
 const modalcontainer=document.getElementById("modalbody")
-function crearhtml(){
+
+function crearhtml(bike){
+  
+  shopcontent.innerHTML=``
   
   bike.forEach(product => {
-      let content= document.createElement("div");
-      content.innerHTML=``
-
+      content= document.createElement("div");
       content.className="card d-inline-block m-1"
       content.style="width: 15rem;"
       content.innerHTML=`
@@ -32,8 +33,10 @@ function crearhtml(){
       let comprar = document.createElement("button");
       comprar.innerText="COMPRAR";
       comprar.className="btn btn-dark m-1"
-      shopcontent.append(content)
-      content.append(comprar)
+      shopcontent.appendChild(content)
+      content.appendChild(comprar)
+      
+      
   
   comprar.addEventListener("click",()=>{
       const repeat = carrito.some((repeatproduct)=> repeatproduct.id === product.id);
@@ -56,16 +59,16 @@ function crearhtml(){
       })   
   });
 }
-crearhtml()
+crearhtml(bike)
 
 searchbike.addEventListener("input",()=>{
   let filtro= filtrarbike(searchbike.value)
-  
+  console.log(filtro);
   crearhtml(filtro)
 });
 btnsearch.addEventListener("click",()=>{
   let filtro= filtrarbike(searchbike.value)
   console.log(filtro);
-  
+
   crearhtml(filtro)
 });
