@@ -4,7 +4,7 @@ const bike = [
       brand: "TREK",
       model: "XCaliber 8", 
       price: 500000,
-      img: "./assets/img/trekxcaliber8.jpg",
+      img: "https://via.placeholder.com/150/24f355",
       amount:1
     },
     {
