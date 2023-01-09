@@ -4,7 +4,7 @@ const pintarCarrito= ()=>{
         let modalbody = document.createElement("div");
         modalbody.className="modal-body bg-light"
         modalbody.innerHTML=`
-            <p class="d-inline-block">🚵</p>    
+            <img src="${product.img}" alt="">    
             <h6 class="card-title ps-1 d-inline-block ">${product.brand}</h3>
             <h6 class ="card-title ps-1 d-inline-block">${product.model}</h5>
             <p class="card-text d-inline-block">Cant.: ${product.amount}</p>

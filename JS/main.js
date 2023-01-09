@@ -8,12 +8,11 @@ bike.forEach(product => {
     let content= document.createElement("div");
     content.className="card d-inline-block m-1"
     content.style="width: 15rem;"
-     content.innerHTML=`
+    content.innerHTML=`
                             <img class="card-img-top" src="${product.img}">    
                             <h4 class="card-title">${product.brand}</h3>
                             <h6 class ="card-title">${product.model}</h5>
                             <p class="card-text">$ ${product.price}</p>
-                        
                             `
     let comprar = document.createElement("button");
     comprar.innerText="COMPRAR";
@@ -42,11 +41,35 @@ comprar.addEventListener("click",()=>{
     })   
 });
 
+function buscarServicio(arr, filtro) {
+  const encontrado = arr.find((product) => {
+    return product.brand.includes(filtro);
+  });
+  return encontrado;
+}
+function filtrarServicio(arr, filtro) {
+  const filtrado = arr.filter((product) => {
+    return product.brand.includes(filtro);
+  });
+  return filtrado;
+}
+//EVENTOS
+//llamo a todos los elementos input de tipo [text]
+const input = document.querySelectorAll('#inputbuscar'),
+btnSearch = document.querySelector("#btnSearch");
+//console.log(input[0]);
+btnSearch.addEventListener("click", () => {
+  //codigo a ejecutar
+  const encontrado = buscarServicio(product, input[0].value);
+  console.log(encontrado);
+  console.log("yes");
+  content(encontrado);
+});
 
+input[0].addEventListener("input", () => {
+  //codigo a ejecutar
+  const encontrado = buscarServicio(product, input[0].value);
+  console.log(encontrado);
+  content(encontrado);
+});
 
-const myModal = document.getElementById('myModal')
-const myInput = document.getElementById('myInput')
-
-myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
