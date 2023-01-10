@@ -2,9 +2,9 @@ const bike = [
     {
       id:1,
       brand: "TREK",
-      model: "XCaliber 8", 
-      price: 500000,
-      img: "./assets/img/trekxcaliber8.jpg",
+      model: "Procaliber 9.5 R29", 
+      price: 1100000,
+      img: "./assets/img/trekxcaliber.jpg",
       amount:1
     },
     {
@@ -12,7 +12,7 @@ const bike = [
         brand:"KTM",
         model:"Ultra 4.9",
         price: 400000,
-        img: "./assets/img/trekxcaliber8.jpg",
+        img: "./assets/img/trekxcaliber.jpg",
         amount:1
       },
       {
@@ -20,7 +20,7 @@ const bike = [
         brand:"SPECIALIZED",
         model:"Epic Comp",
         price: 750000,
-        img: "./assets/img/trekxcaliber8.jpg",
+        img: "./assets/img/trekxcaliber.jpg",
         amount:1
       },
       {
@@ -28,7 +28,7 @@ const bike = [
         brand:"VAIRO",
         model:"XR 8.9",
         price: 350000,
-        img: "./assets/img/trekxcaliber8.jpg",
+        img: "./assets/img/trekxcaliber.jpg",
         amount:1
       },
       {
@@ -36,7 +36,7 @@ const bike = [
         brand:"SPL",
         model:"Rodado 29",
         price: 150000,
-        img: "./assets/img/trekxcaliber8.jpg",
+        img: "./assets/img/trekxcaliber.jpg",
         amount:1
       },
       {
@@ -44,7 +44,7 @@ const bike = [
         brand:"SCOTT",
         model:"Scale 970",
         price: 480000,
-        img: "./assets/img/trekxcaliber8.jpg",
+        img: "./assets/img/trekxcaliber.jpg",
         amount:1
       },
       {
@@ -52,23 +52,23 @@ const bike = [
         brand:"VENZO",
         model:"R29 2023",
         price: 280000,
-        img: "./assets/img/trekxcaliber8.jpg",
+        img: "./assets/img/trekxcaliber.jpg",
         amount:1
       },
       {
         id:8,
         brand: "TREK",
-        model: "XCaliber 8", 
-        price: 500000,
-        img: "./assets/img/trekxcaliber8.jpg",
+        model: "XCaliber 8 Ruta Emonda Pro", 
+        price: 1200000,
+        img:"./assets/img/trekxcaliber.jpg",
         amount:1
       },
       {
           id:9,
           brand:"KTM",
-          model:"Ultra 4.9",
+          model:"Ultra 3.9 Deore",
           price: 400000,
-          img: "./assets/img/trekxcaliber8.jpg",
+          img: "./assets/img/trekxcaliber.jpg",
           amount:1
         },
         {
@@ -76,7 +76,7 @@ const bike = [
           brand:"SPECIALIZED",
           model:"Epic Comp",
           price: 750000,
-          img: "./assets/img/trekxcaliber8.jpg",
+          img: "./assets/img/trekxcaliber.jpg",
           amount:1
         },
         {
@@ -84,7 +84,7 @@ const bike = [
           brand:"VAIRO",
           model:"XR 8.9",
           price: 350000,
-          img: "./assets/img/trekxcaliber8.jpg",
+          img: "./assets/img/trekxcaliber.jpg",
           amount:1
         },
         {
@@ -92,7 +92,7 @@ const bike = [
           brand:"SPL",
           model:"Rodado 29",
           price: 150000,
-          img: "./assets/img/trekxcaliber8.jpg",
+          img: "./assets/img/trekxcaliber.jpg",
           amount:1
         },
         {
@@ -100,7 +100,7 @@ const bike = [
           brand:"SCOTT",
           model:"Scale 970",
           price: 480000,
-          img: "./assets/img/trekxcaliber8.jpg",
+          img: "./assets/img/trekxcaliber.jpg",
           amount:1
         },
         {
@@ -108,7 +108,17 @@ const bike = [
           brand:"VENZO",
           model:"R29 2023",
           price: 280000,
-          img: "./assets/img/trekxcaliber8.jpg",
+          img: "./assets/img/trekxcaliber.jpg",
+          amount:1
+        },
+        {
+          id:15,
+          brand:"TREK",
+          model:"Marlin 7 2022 Transmisión Slx 1x12 ",
+          price: 570000,
+          img:"./assets/img/trekxcaliber.jpg",
           amount:1
         }
+
 ]
+
