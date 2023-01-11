@@ -2,9 +2,9 @@ const pintarCarrito= ()=>{
     modalbody.innerHTML=""
     carrito.forEach((product)=>{
         let modalbody = document.createElement("div");
-        modalbody.className="modal-body bg-light"
+        modalbody.className="modal-body"
         modalbody.innerHTML=`
-            <p>🚴</p>    
+        <img class="card-img-top" src="${product.img}">    
             <h6 class="card-title ps-1 d-inline-block ">${product.brand}</h3>
             <h6 class ="card-title ps-1 d-inline-block">${product.model}</h5>
             <p class="card-text d-inline-block">Cant.: ${product.amount}</p>
