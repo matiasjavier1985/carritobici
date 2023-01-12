@@ -2,24 +2,44 @@
 const pintarCarrito= ()=>{
     modalbody.innerHTML=""
     carrito.forEach((product)=>{
-        let modalbody = document.createElement("div");
-        modalbody.className="modal-body"
-        modalbody.innerHTML=`
-            <img class="card-img-top" src="${product.img}">   
-            <h6 class="card-title ps-1 d-inline-block ">${product.brand}</h3>
+    let modalbody = document.createElement("div");
+      modalbody.className="modal-body"
+      modalbody.innerHTML=`
+            <img class="img-thumbnail w-25" src="${product.img}">   
+            <h6 class="card-title ps-1 d-inline-block">${product.brand}</h3>
             <h6 class ="card-title ps-1 d-inline-block">${product.model}</h5>
-            <p class="card-text d-inline-block">Cant.: ${product.amount}</p>
-            <p class="card-text"><strong>$</strong> ${product.price}</p>
+            <p class="card-text text-center"><strong>$</strong> ${product.price}</p>
+            <button class="btn btn-danger d-inline-block restarproduct">➖</button>
+            <p class="card-text d-inline-block">Cant: ${product.amount}</p>
+            <button class="btn btn-info d-inline-block sumarproduct">➕</button>
             <p class="badge bg-success">Sub-Total: $ ${product.amount * product.price}</p>
             `
     modalcontainer.append(modalbody)
+
+    let restar = modalbody.querySelector(".restarproduct")
+  
+    restar.addEventListener("click",()=>{
+      if(product.amount !==1){
+         product.amount--
+      }
+      guardarLS()
+      totalgastado()
+      pintarCarrito()
+    })
+    let sumar = modalbody.querySelector(".sumarproduct")
+
+    sumar.addEventListener("click",()=>{
+      product.amount++
+      guardarLS()
+      totalgastado()
+      pintarCarrito()
+    })
+
     let eliminar = document.createElement("div")
     eliminar.innerHTML= "X"
     eliminar.style.cursor="pointer"
-    eliminar.className="btn btn-danger d-inline-block"
-
+    eliminar.className="btn btn-danger shadow bg-warning"
     modalcontainer.append(eliminar)
-  
     eliminar.addEventListener("click", eliminarproducto)
 
   });

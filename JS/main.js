@@ -64,15 +64,18 @@ crearhtml(bike)
 let selectbrand = document.getElementById("selectbrand")
 searchbike.addEventListener("input",()=>{
   let filtro= filtrarbike(searchbike.value)
-  console.log(filtro);
   crearhtml(filtro)
 });
 
 bike.forEach((bicis) => {
   let option = document.createElement("option");
-  option.value =bicis.brand;
-  option.innerText =bicis.brand;
-  selectbrand.appendChild(option);
+ // const repeat = carrito.some((repeatproduct)=> repeatproduct.brand === product.brand);
+    option.value =bicis.brand;
+    option.innerText =bicis.brand;
+    selectbrand.appendChild(option);
+    
+  
+
 });
 
 btnborrarselect = document.getElementById("borrarselect")
@@ -91,7 +94,7 @@ selectbrand.addEventListener("change", () => {
 
 function selectbike(filtro) {
   let filtrado = bike.filter((bici) => {
-    return bici.model.includes(filtro);
+    return bici.brand.includes(filtro);
   });
   return filtrado;
 }
@@ -100,5 +103,5 @@ function selectbike(filtro) {
 const guardarLS = ()=>{
   localStorage.setItem("carrito", JSON.stringify(carrito))
 }
-//getitem
+
 
