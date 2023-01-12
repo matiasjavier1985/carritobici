@@ -44,7 +44,7 @@ const bike = [
         brand:"SCOTT",
         model:"Scale 970",
         price: 480000,
-        img: "./assets/img/trekxcaliber.jpg",
+        img:"/assets/img/trekxcaliber.jpg",
         amount:1
       },
       {

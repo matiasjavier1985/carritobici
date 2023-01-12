@@ -1,5 +1,4 @@
-
-let carrito= []
+let carrito= JSON.parse(localStorage.getItem("carrito"))||[];
 
 let searchbike= document.getElementById("searchbike");
 
@@ -15,7 +14,7 @@ const shopcontent = document.getElementById("shopcontent");
 const vercarrito = document.getElementById("vercarrito")
 const modalcontainer=document.getElementById("modalbody")
 const cantcarrito= document.getElementById("cantcarrito")
-//const totalmoney=document.getElementById("totalmoney")
+
 function crearhtml(bike){
   shopcontent.innerHTML=``
   bike.forEach(product => {
@@ -34,6 +33,7 @@ function crearhtml(bike){
       content.appendChild(comprar)
 
   comprar.addEventListener("click",()=>{
+
       const repeat = carrito.some((repeatproduct)=> repeatproduct.id === product.id);
 
         if (repeat){
@@ -48,25 +48,25 @@ function crearhtml(bike){
           brand:product.brand,
           model:product.model,
           price:product.price,
-          amount: product.amount
-        });
+          amount: product.amount,
+          img:product.img        
+        });    
       }
+      totalgastado() 
+      guardarLS()
       amountcarrito()
-      totalgastado()  
+
       }) 
-    
   });
 }
 crearhtml(bike)
-let selectbrand = document.getElementById("selectbrand")
 
+let selectbrand = document.getElementById("selectbrand")
 searchbike.addEventListener("input",()=>{
   let filtro= filtrarbike(searchbike.value)
   console.log(filtro);
   crearhtml(filtro)
 });
-
-
 
 bike.forEach((bicis) => {
   let option = document.createElement("option");
@@ -74,7 +74,6 @@ bike.forEach((bicis) => {
   option.innerText =bicis.brand;
   selectbrand.appendChild(option);
 });
-
 
 btnborrarselect = document.getElementById("borrarselect")
 
@@ -92,7 +91,14 @@ selectbrand.addEventListener("change", () => {
 
 function selectbike(filtro) {
   let filtrado = bike.filter((bici) => {
-    return bici.brand.includes(filtro);
+    return bici.model.includes(filtro);
   });
   return filtrado;
 }
+//LocalStorage
+//setitem
+const guardarLS = ()=>{
+  localStorage.setItem("carrito", JSON.stringify(carrito))
+}
+//getitem
+
