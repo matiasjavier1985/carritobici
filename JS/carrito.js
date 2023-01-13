@@ -38,10 +38,9 @@ const pintarCarrito= ()=>{
     let eliminar = document.createElement("div")
     eliminar.innerHTML= "X"
     eliminar.style.cursor="pointer"
-    eliminar.className="btn btn-danger shadow bg-warning"
+    eliminar.className="btn btn-danger"
     modalcontainer.append(eliminar)
     eliminar.addEventListener("click", eliminarproducto)
-
   });
     const total = carrito.reduce((acc,totalprecio) => acc + totalprecio.price * totalprecio.amount,0);
     
@@ -62,8 +61,20 @@ const eliminarproducto=()=>{
   pintarCarrito()
   guardarLS()
   amountcarrito()
+  Toastify({
+    text: "🚴Producto eliminado",
+    duration: 2000,
+    newWindow: true,
+    close: false,
+    gravity: "bottom", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+    background:"linear-gradient(to right, #ff416c, #ff4b2b);",
+    },
+    onClick: function(){} // Callback after click
+  }).showToast();
 };
-
 const amountcarrito=()=>{
   cantcarrito.className="translate-middle badge rounded-pill bg-danger"
   const carritolength = carrito.length

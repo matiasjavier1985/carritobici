@@ -32,7 +32,22 @@ function crearhtml(bike){
       shopcontent.appendChild(content)
       content.appendChild(comprar)
 
-  comprar.addEventListener("click",()=>{
+  comprar.addEventListener("click",()=>{ 
+    Toastify({
+    text: "🚴 Producto agregado",
+    duration:2000,
+    newWindow: true,
+    close: true,
+    gravity: "bottom", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      border:"2px solid red;",
+      background: "linear-gradient(to right, #ef3b36, #ffffff);",
+    },
+    onClick: function(){} // Callback after click
+  }).showToast();
+
       const repeat = carrito.some((repeatproduct)=> repeatproduct.id === product.id);
         if (repeat){
           carrito.map((prod)=>{
