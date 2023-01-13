@@ -43,3 +43,15 @@ console.log(deJsonaObj.precio);
 bike.push(bike)
 console.log(carrito);
 */
+bici=[]
+for (let i = 0; i < bike.length; i++) {
+    const element = bike[i];
+    bici.push(element.brand)
+    console.log(bici);  
+}
+const filtradobici = bici.filter((valor, indice) => {
+    return bici.indexOf(valor) === indice;
+  }
+);
+console.log(filtradobici); 
+  

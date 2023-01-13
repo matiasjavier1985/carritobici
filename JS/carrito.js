@@ -65,18 +65,14 @@ const eliminarproducto=()=>{
 };
 
 const amountcarrito=()=>{
-  //cantcarrito = carrito.length
   cantcarrito.className="translate-middle badge rounded-pill bg-danger"
-  //cantcarrito.innerHTML=carrito.length
   const carritolength = carrito.length
   localStorage.setItem("carritolength",JSON.stringify(carritolength));
-  // cantcarrito.innerHTML= JSON.parse(localStorage.getitem("carritolength"));
   cantcarrito.innerText= localStorage.getItem("carritolength")
 }
 
 const totalgastado=()=>{
   const total = carrito.reduce((acc,totalprecio) => acc + totalprecio.price * totalprecio.amount,0); 
- // totalmoney.innerHTML=`$ ${total}`
   const moneygastado= total
   localStorage.setItem("moneygastado",JSON.stringify(moneygastado))
   totalmoney.innerText = `$ ${localStorage.getItem("moneygastado")}`

@@ -33,9 +33,7 @@ function crearhtml(bike){
       content.appendChild(comprar)
 
   comprar.addEventListener("click",()=>{
-
       const repeat = carrito.some((repeatproduct)=> repeatproduct.id === product.id);
-
         if (repeat){
           carrito.map((prod)=>{
             if(prod.id === product.id){
@@ -55,7 +53,6 @@ function crearhtml(bike){
       totalgastado() 
       guardarLS()
       amountcarrito()
-
       }) 
   });
 }
@@ -69,13 +66,9 @@ searchbike.addEventListener("input",()=>{
 
 bike.forEach((bicis) => {
   let option = document.createElement("option");
- // const repeat = carrito.some((repeatproduct)=> repeatproduct.brand === product.brand);
     option.value =bicis.brand;
     option.innerText =bicis.brand;
     selectbrand.appendChild(option);
-    
-  
-
 });
 
 btnborrarselect = document.getElementById("borrarselect")
