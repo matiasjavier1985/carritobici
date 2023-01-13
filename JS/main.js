@@ -64,33 +64,42 @@ searchbike.addEventListener("input",()=>{
   crearhtml(filtro)
 });
 
-bike.forEach((bicis) => {
-  let option = document.createElement("option");
-    option.value =bicis.brand;
-    option.innerText =bicis.brand;
-    selectbrand.appendChild(option);
-});
-
 btnborrarselect = document.getElementById("borrarselect")
 
 btnborrarselect.addEventListener("click",()=>{
   crearhtml(bike)
 })
 
-
-selectbrand.addEventListener("change", () => {
-  let opcion = selectbrand.options[selectbrand.selectedIndex].value;
-  let filtro= selectbike(opcion)
-  crearhtml(filtro)
-  
-});
-
+bici=[]
+for (let i = 0; i < bike.length; i++) {
+    const element = bike[i];
+    bici.push(element.brand)
+    //console.log(element);  
+}
+const filtradobici = bici.filter((valor, indice) => {
+    return bici.indexOf(valor) === indice;
+  }
+);
 function selectbike(filtro) {
   let filtrado = bike.filter((bici) => {
     return bici.brand.includes(filtro);
   });
   return filtrado;
 }
+filtradobici.forEach((bicis) => {
+  let option = document.createElement("option");
+    option.value =bicis;
+    option.innerText =bicis;
+    selectbrand.appendChild(option);
+});
+
+selectbrand.addEventListener("change", () => {
+  let opcion = selectbrand.options[selectbrand.selectedIndex].value;
+  let filtro= selectbike(opcion)
+  crearhtml(filtro)
+
+});
+
 //LocalStorage
 //setitem
 const guardarLS = ()=>{

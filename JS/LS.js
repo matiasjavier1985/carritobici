@@ -43,15 +43,36 @@ console.log(deJsonaObj.precio);
 bike.push(bike)
 console.log(carrito);
 */
+
 bici=[]
 for (let i = 0; i < bike.length; i++) {
-    const element = bike[i];
-    bici.push(element.brand)
-    console.log(bici);  
+    let option = document.createElement("option");
+    const bicis = bike[i];
+    bici.push(bicis.brand)
+    option.value =bicis.brand;
+    option.innerText =bicis.brand;  
 }
-const filtradobici = bici.filter((valor, indice) => {
+function selectbikee () {
+const filtrado = bici.filter((valor, indice) => {
     return bici.indexOf(valor) === indice;
   }
+  return filtrado
 );
-console.log(filtradobici); 
+
+
+
+
+
+
+// bici=[]
+// for (let i = 0; i < bike.length; i++) {
+//     const element = bike[i];
+//     bici.push(element.brand)
+//     console.log(bici);  
+// }
+// const filtradobici = bici.filter((valor, indice) => {
+//     return bici.indexOf(valor) === indice;
+//   }
+// );
+// console.log(filtradobici); 
   
