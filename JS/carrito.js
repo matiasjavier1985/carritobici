@@ -3,7 +3,7 @@ const pintarCarrito= ()=>{
     modalbody.innerHTML=""
     carrito.forEach((product)=>{
     let modalbody = document.createElement("div");
-      modalbody.className="modal-body shadow"
+      modalbody.className="modal-body shadow  fondocarrito"
       modalbody.innerHTML=`
             <img class="img-thumbnail w-25 shadow" src="${product.img}">   
             <h6 class="card-title ps-1 d-inline-block">${product.brand}</h3>

@@ -1,4 +1,8 @@
 body{
     background: black;
 }
-
+.fondocarrito{
+    background: linear-gradient(to right, #ece9e6, #ffffff); 
+    /* background: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
