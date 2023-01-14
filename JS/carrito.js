@@ -3,15 +3,15 @@ const pintarCarrito= ()=>{
     modalbody.innerHTML=""
     carrito.forEach((product)=>{
     let modalbody = document.createElement("div");
-      modalbody.className="modal-body"
+      modalbody.className="modal-body shadow"
       modalbody.innerHTML=`
-            <img class="img-thumbnail w-25" src="${product.img}">   
+            <img class="img-thumbnail w-25 shadow" src="${product.img}">   
             <h6 class="card-title ps-1 d-inline-block">${product.brand}</h3>
             <h6 class ="card-title ps-1 d-inline-block">${product.model}</h5>
-            <p class="card-text text-center"><strong>$</strong> ${product.price}</p>
-            <button class="btn btn-danger d-inline-block restarproduct">➖</button>
-            <p class="card-text d-inline-block">Cant: ${product.amount}</p>
-            <button class="btn btn-info d-inline-block sumarproduct">➕</button>
+            <p class="card-text text-center"><strong>Precio: $</strong> ${product.price}</p>
+            <button class="btn btn-warning d-inline-block restarproduct">➖</button>
+            <p class="border rounded scard-text d-inline-block p-2">Cant: ${product.amount}</p>
+            <button class="btn btn-warning d-inline-block sumarproduct">➕</button>
             <p class="badge bg-success">Sub-Total: $ ${product.amount * product.price}</p>
             `
     modalcontainer.append(modalbody)
@@ -36,9 +36,9 @@ const pintarCarrito= ()=>{
     })
 
     let eliminar = document.createElement("div")
-    eliminar.innerHTML= "X"
+    eliminar.innerHTML= "Eliminar Producto"
     eliminar.style.cursor="pointer"
-    eliminar.className="btn btn-danger"
+    eliminar.className="btn btn-danger d-flex d-flex-end justify-content-around"
     modalcontainer.append(eliminar)
     eliminar.addEventListener("click", eliminarproducto)
   });

@@ -37,13 +37,13 @@ function crearhtml(bike){
     text: "🚴 Producto agregado",
     duration:2000,
     newWindow: true,
-    close: true,
+    close:false,
     gravity: "bottom", // `top` or `bottom`
     position: "right", // `left`, `center` or `right`
     stopOnFocus: true, // Prevents dismissing of toast on hover
     style: {
       border:"2px solid red;",
-      background: "linear-gradient(to right, #ef3b36, #ffffff);",
+      background:"linear-gradient(to right, #ff416c, #ff4b2b);",
     },
     onClick: function(){} // Callback after click
   }).showToast();
