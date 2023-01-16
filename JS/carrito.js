@@ -1,6 +1,7 @@
 
 const pintarCarrito= ()=>{
     modalbody.innerHTML=""
+    btnfinalizar.attr('disabled', false);
     carrito.forEach((product)=>{
     let modalbody = document.createElement("div");
       modalbody.className="modal-body shadow  fondocarrito"
@@ -36,11 +37,12 @@ const pintarCarrito= ()=>{
     })
 
     let eliminar = document.createElement("div")
-    eliminar.innerHTML= "Eliminar Producto"
+    eliminar.innerHTML=`Eliminar Producto: ${product.brand}-${product.model}`
     eliminar.style.cursor="pointer"
-    eliminar.className="btn btn-danger d-flex d-flex-end justify-content-around"
+    eliminar.className="btn btn-danger d-flex flex-row-reverse bd-highlight"
     modalcontainer.append(eliminar)
     eliminar.addEventListener("click", eliminarproducto)
+
   });
     const total = carrito.reduce((acc,totalprecio) => acc + totalprecio.price * totalprecio.amount,0);
     
@@ -48,6 +50,7 @@ const pintarCarrito= ()=>{
     totalbuying.className= "modal-footer";
     totalbuying.innerHTML =`🛒 Total a pagar:$ ${total}`
     modalbody.append(totalbuying)
+  
 };
 vercarrito.addEventListener("click",pintarCarrito)
 
@@ -56,24 +59,40 @@ const eliminarproducto=()=>{
   carrito=carrito.filter((carritoID)=>{
   return carritoID !== foundID;
   });
-  
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+  Toast.fire({
+    icon: 'success',
+    title: 'Producto eliminado'
+  })
+
   totalgastado()
   pintarCarrito()
   guardarLS()
   amountcarrito()
-  Toastify({
-    text: "🚴Producto eliminado",
-    duration: 2000,
-    newWindow: true,
-    close: false,
-    gravity: "bottom", // `top` or `bottom`
-    position: "right", // `left`, `center` or `right`
-    stopOnFocus: true, // Prevents dismissing of toast on hover
-    style: {
-    background:"linear-gradient(to right, #ff416c, #ff4b2b);",
-    },
-    onClick: function(){} // Callback after click
-  }).showToast();
+//   Toastify({
+//     text: "🚴Producto eliminado",
+//     duration: 2000,
+//     newWindow: true,
+//     close: false,
+//     gravity: "bottom", // `top` or `bottom`
+//     position: "right", // `left`, `center` or `right`
+//     stopOnFocus: true, // Prevents dismissing of toast on hover
+//     style: {
+//     background:"linear-gradient(to right, #ff416c, #ff4b2b);",
+//     },
+//     onClick: function(){} // Callback after click
+//   }).showToast();
 };
 const amountcarrito=()=>{
   cantcarrito.className="translate-middle badge rounded-pill bg-danger"
@@ -88,4 +107,34 @@ const totalgastado=()=>{
   localStorage.setItem("moneygastado",JSON.stringify(moneygastado))
   totalmoney.innerText = `$ ${localStorage.getItem("moneygastado")}`
 }
+const btnfinalizar= document.getElementById("btnfinalizarcompra")
+btnfinalizar.addEventListener("click",()=>{
+  Swal.fire({
+    title: 'BIKESHOP',
+    text: "Desea finalzar la Compra?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'SI'
+  }).then((result) => {
+    if (result.isConfirmed) {
+    localStorage.removeItem("carrito")
+    localStorage.removeItem("moneygastado")
+    localStorage.setItem("carritolength", 0);
+    modalbody.innerHTML=""
+      Swal.fire(
+        'Success',
+        'Compra Exitosa',
+      )
+      setTimeout(function(){
+        window.location.reload();
+     }, 2000);
+    }
+  }) 
+})
+
 amountcarrito()
+
+
+

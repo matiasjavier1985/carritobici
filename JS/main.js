@@ -26,27 +26,29 @@ function crearhtml(bike){
                               <h6 class ="card-title">${product.model}</h5>
                               <p class="card-text">$ ${product.price}</p>
                               `
-      let comprar = document.createElement("button");
+      let comprar = document.createElement("div");
       comprar.innerText="COMPRAR";
       comprar.className="btn btn-primary m-1 shadow"
       shopcontent.appendChild(content)
       content.appendChild(comprar)
 
   comprar.addEventListener("click",()=>{ 
-    Toastify({
-    text: "🚴 Producto agregado",
-    duration:2000,
-    newWindow: true,
-    close:false,
-    gravity: "bottom", // `top` or `bottom`
-    position: "right", // `left`, `center` or `right`
-    stopOnFocus: true, // Prevents dismissing of toast on hover
-    style: {
-      border:"2px solid red;",
-      background:"linear-gradient(to right, #ff416c, #ff4b2b);",
-    },
-    onClick: function(){} // Callback after click
-  }).showToast();
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'bottom-end',
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'Producto agregado'
+    })
 
       const repeat = carrito.some((repeatproduct)=> repeatproduct.id === product.id);
         if (repeat){
