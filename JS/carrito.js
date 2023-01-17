@@ -62,7 +62,7 @@ const eliminarproducto=()=>{
     toast: true,
     position: 'bottom-end',
     showConfirmButton: false,
-    timer: 2000,
+    timer: 1500,
     timerProgressBar: true,
     didOpen: (toast) => {
       toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -96,7 +96,7 @@ const btnfinalizar= document.getElementById("btnfinalizarcompra")
 btnfinalizar.addEventListener("click",()=>{
   Swal.fire({
     title: 'BIKESHOP',
-    text: "Desea finalzar la Compra?",
+    text: "Desea finalizar la Compra?",
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
@@ -108,10 +108,11 @@ btnfinalizar.addEventListener("click",()=>{
     localStorage.removeItem("moneygastado")
     localStorage.setItem("carritolength", 0);
     modalbody.innerHTML="CARRITO VACIO"
-      Swal.fire(
-        'Success',
-        'Compra Exitosa',
-      )
+      Swal.fire({
+        icon:"success",
+      
+        text: "Compra exitosa?",
+      })
       setTimeout(function(){
         window.location.reload();
      }, 2000);

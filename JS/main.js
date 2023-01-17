@@ -19,7 +19,7 @@ function crearhtml(bike){
   shopcontent.innerHTML=``
   bike.forEach(product => {
       content= document.createElement("div");
-      content.className="card d-inline-block m-3"
+      content.className="card d-inline-block m-4"
       content.innerHTML=`
                               <img class="card-img-top" src="${product.img}">    
                               <h4 class="card-title bg-danger">${product.brand}</h3>

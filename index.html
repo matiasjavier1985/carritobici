@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BIKESHOP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="shortcut icon" href="./assets/img/android-icon-48x48.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
@@ -12,22 +13,12 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   </head>
   <body>
-    <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="d-flex">
-        <div class="toast-body">
-          Hello, world! This is a toast message.
-        </div>
-        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-    </div>
   <section> 
         <div class="container-fluid">
             <div class="row align-items-center">
               <div class="col-lg col-md col-xs-6 text-center">
                 <a class="navbar-brand" href="#">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-bicycle" viewBox="0 0 16 16">
-                      <path d="M4 4.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1v.5h4.14l.386-1.158A.5.5 0 0 1 11 4h1a.5.5 0 0 1 0 1h-.64l-.311.935.807 1.29a3 3 0 1 1-.848.53l-.508-.812-2.076 3.322A.5.5 0 0 1 8 10.5H5.959a3 3 0 1 1-1.815-3.274L5 5.856V5h-.5a.5.5 0 0 1-.5-.5zm1.5 2.443-.508.814c.5.444.85 1.054.967 1.743h1.139L5.5 6.943zM8 9.057 9.598 6.5H6.402L8 9.057zM4.937 9.5a1.997 1.997 0 0 0-.487-.877l-.548.877h1.035zM3.603 8.092A2 2 0 1 0 4.937 10.5H3a.5.5 0 0 1-.424-.765l1.027-1.643zm7.947.53a2 2 0 1 0 .848-.53l1.026 1.643a.5.5 0 1 1-.848.53L11.55 8.623z"/>
-                  </svg>
+                  <i class="fa-solid fa-2xl fa-person-biking" style="--fa-animation-duration:5s;"></i>
                 </a>
                 <strong>BIKESHOP</strong>
               </div>
@@ -59,7 +50,7 @@
 
           </div>
           <div class="modal-footer" id="totalcompra">
-            <button type="button" class="btn btn-primary"id="btnfinalizarcompra">Finalizar Compra</button>
+            <button type="button" class="btn btn-dark"id="btnfinalizarcompra">Finalizar Compra</button>
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>  
           </div>
         </div>
@@ -139,7 +130,7 @@
                   </div>
                   <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                       <h6 class="text-uppercase fw-bold mb-4">Compra Online</h6><p>
-                      <a href="#!" class="text-reset">Relojes Audi</a></p>
+                      <a href="#!" class="text-reset">Smart-Watch</a></p>
                       <p><a href="#!" class="text-reset">Vestimenta</a></p>
                       <p><a href="#!" class="text-reset">Accesorios</a></p>
                   </div>
