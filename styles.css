@@ -1,8 +1,14 @@
-body{
-    background: black;
+.fondo-bici{
+    background:url(./assets/img/wallpaper01.jpg)
 }
-.fondocarrito{
-    background: linear-gradient(to right, #ece9e6, #ffffff); 
-    /* background: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
+ 
+.card:hover{
+    background: linear-gradient(to bottom, #c8c8c8, #ffffff); 
+    border: 1px solid lightblue;
+    box-shadow:1px 1px 10px 5px lightblue;
+     
+}
+.fondo-02{
+    background: url(./assets/img/wallpaper02.jpg);
+    height:5rem;
 }

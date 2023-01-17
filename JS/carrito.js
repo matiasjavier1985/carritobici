@@ -1,19 +1,17 @@
 
 const pintarCarrito= ()=>{
     modalbody.innerHTML=""
-    btnfinalizar.attr('disabled', false);
     carrito.forEach((product)=>{
     let modalbody = document.createElement("div");
-      modalbody.className="modal-body shadow  fondocarrito"
+      modalbody.className="modal-body"
       modalbody.innerHTML=`
             <img class="img-thumbnail w-25 shadow" src="${product.img}">   
-            <h6 class="card-title ps-1 d-inline-block">${product.brand}</h3>
-            <h6 class ="card-title ps-1 d-inline-block">${product.model}</h5>
-            <p class="card-text text-center"><strong>Precio: $</strong> ${product.price}</p>
-            <button class="btn btn-warning d-inline-block restarproduct">➖</button>
-            <p class="border rounded scard-text d-inline-block p-2">Cant: ${product.amount}</p>
-            <button class="btn btn-warning d-inline-block sumarproduct">➕</button>
-            <p class="badge bg-success">Sub-Total: $ ${product.amount * product.price}</p>
+            <h6 class="ps-1 d-inline-block">${product.brand}-${product.model}</h6>
+            <h6 class="d-block">Precio:${product.price}</h6>
+            <button class="btn btn-body border rounded p-1 d-inline-block restarproduct">➖</button>
+            <p class="border rounded p-2 d-inline-block">Cant: ${product.amount}</p>
+            <button class="btn btn-body border rounded p-1 d-inline-block sumarproduct">➕</button>
+            <p class="badge bg-success d-inline-block">Sub-Total: $ ${product.amount * product.price}</p>
             `
     modalcontainer.append(modalbody)
 
@@ -37,9 +35,9 @@ const pintarCarrito= ()=>{
     })
 
     let eliminar = document.createElement("div")
-    eliminar.innerHTML=`Eliminar Producto: ${product.brand}-${product.model}`
+    eliminar.innerHTML=`Eliminar ${product.brand}-${product.model}`
     eliminar.style.cursor="pointer"
-    eliminar.className="btn btn-danger d-flex flex-row-reverse bd-highlight"
+    eliminar.className="btn btn-danger d-flex flex-row-reverse"
     modalcontainer.append(eliminar)
     eliminar.addEventListener("click", eliminarproducto)
 
@@ -48,7 +46,7 @@ const pintarCarrito= ()=>{
     
     const totalbuying = document.createElement("div");
     totalbuying.className= "modal-footer";
-    totalbuying.innerHTML =`🛒 Total a pagar:$ ${total}`
+    totalbuying.innerHTML =`🛒 Total a pagar:<h6>$ ${total}</h6>`
     modalbody.append(totalbuying)
   
 };
@@ -80,19 +78,6 @@ const eliminarproducto=()=>{
   pintarCarrito()
   guardarLS()
   amountcarrito()
-//   Toastify({
-//     text: "🚴Producto eliminado",
-//     duration: 2000,
-//     newWindow: true,
-//     close: false,
-//     gravity: "bottom", // `top` or `bottom`
-//     position: "right", // `left`, `center` or `right`
-//     stopOnFocus: true, // Prevents dismissing of toast on hover
-//     style: {
-//     background:"linear-gradient(to right, #ff416c, #ff4b2b);",
-//     },
-//     onClick: function(){} // Callback after click
-//   }).showToast();
 };
 const amountcarrito=()=>{
   cantcarrito.className="translate-middle badge rounded-pill bg-danger"
@@ -122,7 +107,7 @@ btnfinalizar.addEventListener("click",()=>{
     localStorage.removeItem("carrito")
     localStorage.removeItem("moneygastado")
     localStorage.setItem("carritolength", 0);
-    modalbody.innerHTML=""
+    modalbody.innerHTML="CARRITO VACIO"
       Swal.fire(
         'Success',
         'Compra Exitosa',
